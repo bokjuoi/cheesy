@@ -11,9 +11,12 @@ public class CatMovement : MonoBehaviour
         
     }
 
+
+    [SerializeField] private Transform mouse;
     // Update is called once per frame
     void Update()
     {
-        cat.AddForce(Vector2.one);
+        Vector2 direction = mouse.position - transform.position;
+        cat.AddForce(direction.normalized);
     }
 }
